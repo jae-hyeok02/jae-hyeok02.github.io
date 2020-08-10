@@ -1,0 +1,382 @@
+/***
+ *	init
+ */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	user-select: none;
+}
+
+body::-webkit-scrollbar {
+	width: 5px;
+	background-color: #ededed;
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: #bdbdbd;
+}
+
+img {
+  object-fit: cover;
+  user-select: none;
+  /* -webkit-user-drag: none; */
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+body {
+	font-size: 16px;
+	letter-spacing: -0.5px;
+	font-family: "나눔스퀘어";
+	/* font-family: "배달의민족 한나체 Pro"; */
+	/* font-family: "Noto Sans KR"; */
+	/* font-family: "Malgun Gothic"; 폰트 바꿀 예정 */
+}
+
+#wrap {
+	max-width: 1920px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.rap {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+/***
+ *	메인 비주얼
+ */
+
+.visual {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+	margin: 0 auto;
+	/* background-color: rgba(0, 0, 0, .6); */
+	/* background-color: #fff; */
+}
+
+.visual-my-img {
+	position: absolute;
+	z-index: 100;
+	left: 50%;
+	top: 35%; /* notebook */
+	/* top: 40%; computer */
+	transform: translate(-50%, -50%);
+	width: 130px;
+	height: 130px;
+	overflow: hidden;
+	animation: opacityImg 2s forwards;
+	animation-delay: 9s;
+	border-radius: 50%;
+	border: 7px solid #B8E1FF;
+	opacity: 0;
+}
+
+.visual-my-img img {
+	width: 100%;
+	height: 100%;
+}
+
+.visual-img {
+	position: relative;
+	width: 0;
+	height: 0;
+	animation: test 4s forwards;
+	animation-delay: 1s;
+	border: 3px solid #B8E1FF;
+	background-color: #B8E1FF;
+	/* background-color: rgba(0, 0, 0, .4); */
+}
+
+.visual-img-block {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	/* background-image: url("../images/test.jpg"); */
+	animation: opacityImg 1s forwards;
+	animation-delay: 3.8s;
+}
+
+.visual-title {
+	width: 80%;
+}
+
+.visual-typer {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 100;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	color: #fff;
+	font-size: 5rem;
+	text-align: center;
+	animation: downTyper 1s forwards;
+	animation-delay: 9s;
+}
+
+.visual-typer:before {
+	content: "ㅇ";
+	animation: typing 3s forwards;
+	animation-delay: 6s;
+	opacity: 0;
+}
+
+.visual-scroll {
+  position: fixed;
+  top: 87.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.visual-scroll img {
+  opacity: 0;
+  animation: scrollImageFade 1s infinite;
+  animation-delay: 10s;
+}
+
+/* scroll now 이미지 페이드 토글 */
+@keyframes scrollImageFade {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* .visual-typer-underline {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 99;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100px;
+	background-color: #186eff;
+} */
+
+@keyframes test {
+	10%, 40% {
+		width: 100%;
+		border: 3px solid #B8E1FF;
+	}
+
+	40%, 70% {
+		height: 0;
+		border: 3px solid #B8E1FF;
+	}
+
+	70%, 100% {
+		width: 100%;
+		height: 100vh;
+	}
+	
+	100% {
+		border: none;
+	}
+}
+
+@keyframes opacityImg {
+	0% {
+		opacity: 0;
+	}
+	
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes typing {
+
+	/* 39 */
+	/* 2.564102564102564 */
+
+	/* 원래 36으로 나눈건데 37로 다시 나눠서 마지막쯤에 하나 추가
+	?% 	{ content: "안녕하세요! 개발자 강재혁입니다" }*/
+
+	0% 					{ content: "ㅇ"; opacity: 1; }
+	2.564102% 	{ content: "아"; }
+	5.128204% 	{ content: "안" }
+	7.692306% 	{ content: "안ㄴ" }
+	10.256408% 	{ content: "안녀" }
+	12.82051% 	{ content: "안녕" }
+	15.384612% 	{ content: "안녕ㅎ" }
+	17.948714% 	{ content: "안녕하" }
+	20.512816% 	{ content: "안녕하ㅅ" }
+	23.076918% 	{ content: "안녕하세" }
+	25.64102% 	{ content: "안녕하세ㅇ" }
+	28.205122% 	{ content: "안녕하세요" }
+	30.769224% 	{ content: "안녕하세요!" }
+	33.333326% 	{ content: "안녕하세요! " }
+	35.897428% 	{ content: "안녕하세요! ㄱ" }
+	38.46153% 	{ content: "안녕하세요! 개" }
+	41.025632% 	{ content: "안녕하세요! 개ㅂ" }
+	43.589734% 	{ content: "안녕하세요! 개바" }
+	46.153836% 	{ content: "안녕하세요! 개발" }
+	48.717938% 	{ content: "안녕하세요! 개발ㅈ" }
+	51.28204% 	{ content: "안녕하세요! 개발자" }
+	53.846142% 	{ content: "안녕하세요! 개발자 " }
+	56.410244% 	{ content: "안녕하세요! 개발자 ㄱ" }
+	58.974346% 	{ content: "안녕하세요! 개발자 가" }
+	61.538448% 	{ content: "안녕하세요! 개발자 강 " }
+	64.10255% 	{ content: "안녕하세요! 개발자 강ㅈ" }
+	66.666652% 	{ content: "안녕하세요! 개발자 강재" }
+	69.230754% 	{ content: "안녕하세요! 개발자 강재ㅎ" }
+	71.794856% 	{ content: "안녕하세요! 개발자 강재혀" }
+	74.358958% 	{ content: "안녕하세요! 개발자 강재혁" }
+	76.92306% 	{ content: "안녕하세요! 개발자 강재혁ㅇ" }
+	79.487162% 	{ content: "안녕하세요! 개발자 강재혁이" }
+	82.051264% 	{ content: "안녕하세요! 개발자 강재혁입" }
+	84.615366% 	{ content: "안녕하세요! 개발자 강재혁입ㄴ" }
+	87.179468% 	{ content: "안녕하세요! 개발자 강재혁입니" }
+	89.74357% 	{ content: "안녕하세요! 개발자 강재혁입니ㄷ" }
+	92.307672% 	{ content: "안녕하세요! 개발자 강재혁입니다" }
+	94.871774% 	{ content: "안녕하세요! 개발자 강재혁입니다 " }
+	97.435876% 	{ content: "안녕하세요! 개발자 강재혁입니다 :" }
+	100% 	{ content: "안녕하세요! 개발자 강재혁입니다 :)"; opacity: 1; }
+
+
+
+	/* 0% 					{ content: "ㅇ"; opacity: 1; }
+	2.777778% 	{ content: "아" }
+	5.555556% 	{ content: "안" }
+	8.333334% 	{ content: "안ㄴ" }
+	11.111112% 	{ content: "안녀" }
+	13.88889% 	{ content: "안녕" }
+	16.666668% 	{ content: "안녕ㅎ" }
+	19.444446% 	{ content: "안녕하" }
+	22.222224% 	{ content: "안녕하ㅅ" }
+	25.000002% 	{ content: "안녕하세" }
+	27.77778% 	{ content: "안녕하세ㅇ" }
+	30.555558% 	{ content: "안녕하세요" }
+	33.333336% 	{ content: "안녕하세요!" }
+	36.111114% 	{ content: "안녕하세요! " }
+	38.888892% 	{ content: "안녕하세요! ㄱ" }
+	41.66667% 	{ content: "안녕하세요! 개" }
+	44.444448% 	{ content: "안녕하세요! 개ㅂ" }
+	47.222226% 	{ content: "안녕하세요! 개바" }
+	50.000004% 	{ content: "안녕하세요! 개발" }
+	52.777782% 	{ content: "안녕하세요! 개발ㅈ" }
+	55.55556% 	{ content: "안녕하세요! 개발자" }
+	58.333338% 	{ content: "안녕하세요! 개발자 " }
+	61.111116% 	{ content: "안녕하세요! 개발자 ㄱ" }
+	63.888894% 	{ content: "안녕하세요! 개발자 가" }
+	66.666672% 	{ content: "안녕하세요! 개발자 강 " }
+	69.44445% 	{ content: "안녕하세요! 개발자 강ㅈ" }
+	72.222228% 	{ content: "안녕하세요! 개발자 강재" }
+	75.000006% 	{ content: "안녕하세요! 개발자 강재ㅎ" }
+	77.777784% 	{ content: "안녕하세요! 개발자 강재혀" }
+	80.555562% 	{ content: "안녕하세요! 개발자 강재혁" }
+	83.33334% 	{ content: "안녕하세요! 개발자 강재혁ㅇ" }
+	86.111118% 	{ content: "안녕하세요! 개발자 강재혁이" }
+	88.888896% 	{ content: "안녕하세요! 개발자 강재혁입" }
+	91.666674% 	{ content: "안녕하세요! 개발자 강재혁입ㄴ" }
+	94.444452% 	{ content: "안녕하세요! 개발자 강재혁입니" }
+	97.22223% 	{ content: "안녕하세요! 개발자 강재혁입니ㄷ"; }
+	100% 				{ content: "안녕하세요! 개발자 강재혁입니다 :)"; opacity: 1; } */
+	/*
+	ㅇ
+	아
+	안
+	안ㄴ
+	안녀
+	안녕
+	안녕ㅎ
+	안녕하
+	안녕하ㅅ
+	안녕하세
+	안녕하세ㅇ
+	안녕하세요
+	안녕하세요!
+	안녕하세요!v
+	안녕하세요!v ㄱ
+	안녕하세요!v 개
+	안녕하세요!v 개ㅂ
+	안녕하세요!v 개바
+	안녕하세요!v 개발
+	안녕하세요!v 개발ㅈ
+	안녕하세요!v 개발자
+	안녕하세요!v 개발자v
+	안녕하세요!v 개발자vㄱ
+	안녕하세요!v 개발자v가
+	안녕하세요!v 개발자v강 
+	안녕하세요!v 개발자v강ㅈ
+	안녕하세요!v 개발자v강재
+	안녕하세요!v 개발자v강재ㅎ
+	안녕하세요!v 개발자v강재혀
+	안녕하세요!v 개발자v강재혁
+	안녕하세요!v 개발자v강재혁ㅇ
+	안녕하세요!v 개발자v강재혁이
+	안녕하세요!v 개발자v강재혁입
+	안녕하세요!v 개발자v강재혁입ㄴ
+	안녕하세요!v 개발자v강재혁입니
+	안녕하세요!v 개발자v강재혁입니ㄷ
+	안녕하세요!v 개발자v강재혁입니다
+	안녕하세요!v 개발자v강재혁입니다v
+	안녕하세요!v 개발자v강재혁입니다v:
+	안녕하세요!v 개발자v강재혁입니다v:)
+	*/
+}
+
+@keyframes downTyper {
+	0% {
+		top: 50%;
+	}
+
+	100% {
+		top: 56.5%;
+	}
+}
+
+
+/***
+ *  content 영역
+ */
+.content {
+  animation: contentView 1s forwards;
+  animation-delay: 10s;
+  opacity: 0;
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+@keyframes contentView {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    padding: 50px 0;
+    height: 100vh;
+    display: block;
+  }
+}
+
+
+/* 422.3999938964844, 개발자 모드 */
+/* 722.4000244140625, default */
